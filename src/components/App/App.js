@@ -15,6 +15,8 @@ import BookEdit from '../books/BookEdit'
 import Comment from '../comments/Comment'
 import CommentCreate from '../comments/CommentCreate'
 import CommentEdit from '../comments/CommentEdit'
+import Bookclubs from '../bookclubs/Bookclubs'
+import Bookclub from '../bookclubs/Bookclub'
 
 class App extends Component {
   constructor () {
@@ -49,6 +51,10 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Bookclubs
+              user={user} />
+          )} />
           <Route exact path='/books' render={() => (
             <Books user={user} />
           )} />
