@@ -40,7 +40,8 @@ class Books extends Component {
     return (
       <ListGroup>
         {booksJsx}
-        <Link className="btn btn-primary" to={'/create-book'}> Create a Book! </Link>
+        { this.props.user ? <Link className="btn btn-primary" to={'/create-book'}> Create a Book! </Link> : ''
+        }
       </ListGroup>
     )
   }

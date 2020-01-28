@@ -31,7 +31,16 @@ class Book extends Component {
       }
     })
       .then(() => this.props.history.push('/books'))
-      .catch(() => console.error)
+      .then(() => this.props.alert({
+        heading: 'Delete:',
+        message: 'Comment has been deleted',
+        variant: 'success'
+      }))
+      .catch(() => this.props.alert({
+        heading: 'Oh no, something went wrong',
+        message: 'Please try again',
+        variant: 'danger'
+      }))
   }
 
   render () {
@@ -67,7 +76,7 @@ class Book extends Component {
           )}
         <h6> Comments: </h6>
         {commentJsx}
-        <Link className="btn btn-primary" to={`/books/${this.props.match.params.id}/create-comment`}> Create a Comment! </Link>
+        { this.props.user ? <Link className="btn btn-primary" to={`/books/${this.props.match.params.id}/create-comment`}> Create a Comment! </Link> : '' }
       </div>
     )
   }

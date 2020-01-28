@@ -50,13 +50,13 @@ class App extends Component {
         ))}
         <main className="container">
           <Route exact path='/books' render={() => (
-            <Books />
+            <Books user={user} />
           )} />
           <Route exact path ='/books/:id' render={(props) => (
-            <Book user={user} match={props.match} history={props.history} />
+            <Book user={user} match={props.match} history={props.history} alert={this.alert} />
           )} />
           <Route exact path ='/comments/:id' render={(props) => (
-            <Comment user={user} match={props.match} history={props.history} />
+            <Comment user={user} match={props.match} history={props.history} alert={this.alert} />
           )} />
           <AuthenticatedRoute user={user} path='/create-book'
             render={() => (
