@@ -8,6 +8,13 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Books from '../books/Books'
+import Book from '../books/Book'
+import BookCreate from '../books/BookCreate'
+import BookEdit from '../books/BookEdit'
+import Comment from '../comments/Comment'
+import CommentCreate from '../comments/CommentCreate'
+import CommentEdit from '../comments/CommentEdit'
 
 class App extends Component {
   constructor () {
@@ -42,8 +49,33 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/books' render={() => (
+            <Books />
+          )} />
+          <Route exact path ='/books/:id' render={(props) => (
+            <Book user={user} match={props.match} history={props.history} />
+          )} />
+          <Route exact path ='/comments/:id' render={(props) => (
+            <Comment user={user} match={props.match} history={props.history} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-book'
+            render={() => (
+              <BookCreate alert={this.alert} user={user} />
+            )} />
+          <AuthenticatedRoute user={user} exact path='/books/:id/create-comment'
+            render={(props) => (
+              <CommentCreate alert={this.alert} user={user} match={props.match} history={props.history}/>
+            )} />
+          <AuthenticatedRoute user={user} exact path='/books/:id/edit'
+            render={({ match }) => (
+              <BookEdit match={match} alert={this.alert} user={user} />
+            )} />
+          <AuthenticatedRoute user={user} exact path='/comments/:id/edit'
+            render={({ match }) => (
+              <CommentEdit match={match} alert={this.alert} user={user} />
+            )} />
           <Route path='/sign-up' render={() => (
-            <SignUp alert={this.alert} setUser={this.setUser} />
+            <SignUp alert={this.alert} setUser={this.setUser}/>
           )} />
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />

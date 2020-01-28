@@ -19,13 +19,14 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <Fragment>
     <Nav.Link to="/">Home</Nav.Link>
+    <Nav.Link href="#books"> Books </Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      react-auth-template
+      Bookworm
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
