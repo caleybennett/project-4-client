@@ -12,7 +12,8 @@ class BookCreate extends Component {
       book: {
         title: '',
         author: '',
-        user_id: ''
+        user_id: '',
+        bookclub_id: ''
       },
       createdId: ''
     }
@@ -23,13 +24,15 @@ handleChange= (event) => {
   const inputName = event.target.name
   const inputValue = event.target.value
   console.log(this.props.user)
+  console.log('the this.props.match.params.id', this.props.match.params.id)
   // Set the state to a new object `book` that is the same as book
   // merge the new input name and value into the new book object
   // this will overwrite the other key values with the same values (cascading)
   this.setState({ book: {
     ...this.state.book,
     [inputName]: inputValue,
-    user_id: this.props.user.id
+    user_id: this.props.user.id,
+    bookclub_id: this.props.match.params.id
   }
   })
 }

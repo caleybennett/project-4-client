@@ -51,12 +51,16 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route path='/' render={() => (
+            <h1> BookClub </h1>
+          )} />
           <Route exact path='/' render={() => (
             <Bookclubs
-              user={user} />
+              user={user}
+              alert={this.alert} />
           )} />
-          <Route exact path='/books' render={() => (
-            <Books user={user} />
+          <Route exact path='/books' render={(props) => (
+            <Books user={user} match={props.match} />
           )} />
           <Route exact path ='/books/:id' render={(props) => (
             <Book user={user} match={props.match} history={props.history} alert={this.alert} />
@@ -64,9 +68,12 @@ class App extends Component {
           <Route exact path ='/comments/:id' render={(props) => (
             <Comment user={user} match={props.match} history={props.history} alert={this.alert} />
           )} />
-          <AuthenticatedRoute user={user} path='/create-book'
-            render={() => (
-              <BookCreate alert={this.alert} user={user} />
+          <Route exact path ='/bookclubs/:id' render={(props) => (
+            <Bookclub user={user} match={props.match} history={props.history} alert={this.alert} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/bookclubs/bookclubs/:id/create-book'
+            render={(props) => (
+              <BookCreate alert={this.alert} user={user} match={props.match} />
             )} />
           <AuthenticatedRoute user={user} exact path='/books/:id/create-comment'
             render={(props) => (
