@@ -17,6 +17,7 @@ import CommentCreate from '../comments/CommentCreate'
 import CommentEdit from '../comments/CommentEdit'
 import Bookclubs from '../bookclubs/Bookclubs'
 import Bookclub from '../bookclubs/Bookclub'
+import BookclubCreate from '../bookclubs/BookclubCreate'
 
 class App extends Component {
   constructor () {
@@ -74,6 +75,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/bookclubs/bookclubs/:id/create-book'
             render={(props) => (
               <BookCreate alert={this.alert} user={user} match={props.match} />
+            )} />
+          <AuthenticatedRoute user={user} exact path='/create-bookclub'
+            render={(props) => (
+              <BookclubCreate alert={this.alert} user={user} match={props.match} />
             )} />
           <AuthenticatedRoute user={user} exact path='/books/:id/create-comment'
             render={(props) => (

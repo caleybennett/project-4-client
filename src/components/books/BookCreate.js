@@ -61,6 +61,7 @@ handleSubmit = event => {
       message: 'Please try again',
       variant: 'danger'
     }))
+    .catch(console.error)
 }
 
 render () {
