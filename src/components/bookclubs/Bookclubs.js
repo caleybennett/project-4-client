@@ -9,7 +9,8 @@ class Bookclub extends Component {
     super(props)
 
     this.state = {
-      bookclubs: []
+      bookclubs: [],
+      isLoaded: false
     }
   }
   // {this.props.user ? '' : <h5> In order to join a bookclub please sign in! </h5>}
@@ -19,14 +20,14 @@ class Bookclub extends Component {
       url: `${apiUrl}/bookclubs`
     })
       .then(res => {
-        this.setState({ bookclubs: res.data.bookclubs })
+        this.setState({ bookclubs: res.data.bookclubs, isLoaded: true })
       })
       .catch(console.error)
   }
 
   render () {
     let bookclubsJsx = ''
-    if (!this.state.bookclubs.length) {
+    if (!this.state.isLoaded) {
       bookclubsJsx = <p> loading </p>
       // bookclubsJsx = <Loader
       //   type="Triangle"
