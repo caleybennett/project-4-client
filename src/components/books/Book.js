@@ -37,8 +37,8 @@ class Book extends Component {
         variant: 'success'
       }))
       .catch(() => this.props.alert({
-        heading: 'Oh no, something went wrong',
-        message: 'Please try again',
+        heading: 'This book has comments on it!',
+        message: 'You can only delete books that do not have user comments!',
         variant: 'danger'
       }))
   }
@@ -77,7 +77,9 @@ class Book extends Component {
           (
             <div>
               <Link className="btn btn-primary" to={`/books/${this.props.match.params.id}/edit`}>Edit</Link>
-              <button className="btn btn-danger" onClick={this.handleDelete}>Delete</button>
+              {this.state.book.comments.length > 0 ? ''
+                : <button className="btn btn-danger" onClick={this.handleDelete}>Delete</button>
+              }
             </div>
           )}
         <h6> Comments: </h6>
