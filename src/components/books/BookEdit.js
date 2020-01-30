@@ -22,11 +22,6 @@ class BookEdit extends Component {
       .then(res => {
         this.setState({ book: res.data.book })
       })
-      .then(() => this.props.alert({
-        heading: 'YAYY🍾',
-        message: 'You updated your book',
-        variant: 'success'
-      }))
       .catch(() => this.props.alert({
         heading: 'Oh no, something went wrong',
         message: 'Please try again',

@@ -16,7 +16,7 @@ const BookForm = ({ book, handleChange, handleSubmit }) => (
       onChange={handleChange}
       name="author"
     />
-    <button type="submit"> Submit </button>
+    <button type="submit" className="btn btn-primary"> Submit </button>
   </form>
 )
 
