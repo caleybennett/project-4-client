@@ -26,6 +26,9 @@ class MyBookclub extends Component {
   render () {
     let bookclubsJsx = ''
     const myBookclubs = []
+    // let myBookclubs = this.state.bookclubs.filter(bookclub => bookclub.users.includes())
+
+    // caley's stuff
     if (!this.state.bookclubs.length) {
       bookclubsJsx = <Loader
         type="Triangle"
@@ -35,27 +38,30 @@ class MyBookclub extends Component {
       />
     } else {
       console.log('user: ', this.props.user)
-      for (let x = 0; x < this.state.bookclubs[x]; x++) {
-        for (let i = 0; i < this.state.bookclubs[x].users.length; i++) {
-          if (this.state.bookclubs[x].users[i].id === this.props.user.id) {
-            myBookclubs.push(this.state.bookclubs[x])
-          }
-        }
-      }
-      // myBookclubs = this.state.bookclubs.filter(bookclub => {
-      //   console.log('club: ', bookclub.users)
-      //   // bookclubs.users.includes(this.props.user.email)
-      //   if (bookclub.users.length > 0) {
-      //     return bookclub.users.filter(x => {
-      //       console.log('user id: ', this.props.user.id)
-      //       console.log('x id: ', x.id)
-      //       // return x.id === this.props.user.id
-      //       if (x.id === this.props.user.id) {
-      //         return x
+      //   for (let x = 0; x < this.state.bookclubs[x]; x++) {
+      //     for (let i = 0; i < this.state.bookclubs[x].users.length; i++) {
+      //       if (this.state.bookclubs[x].users[i].id === this.props.user.id) {
+      //         myBookclubs.push(this.state.bookclubs[x])
       //       }
-      //     })
+      //     }
       //   }
-      // })
+
+      this.state.bookclubs.filter(bookclub => {
+        console.log('club: ', bookclub.users)
+        // bookclubs.users.includes(this.props.user.email)
+        if (bookclub.users.length > 0) {
+          return bookclub.users.filter(x => {
+            console.log('user id: ', this.props.user.id)
+            console.log('x id: ', x.id)
+            if (x.id === this.props.user.id) {
+              myBookclubs.push(bookclub)
+            }
+            // if (x.id === this.props.user.id) {
+            //   return x
+            // }
+          })
+        }
+      })
       console.log('my bookclubs', myBookclubs)
       // console.log('clubs: ', this.state.bookclubs)
       bookclubsJsx = myBookclubs.map(bookclub => (

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import { GiBookCover } from 'react-icons/gi'
 
 const authenticatedOptions = (
   <Fragment>
@@ -29,8 +30,7 @@ const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
       booknook
-      <i className="fas fa-books">
-      </i>
+      < GiBookCover />
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
