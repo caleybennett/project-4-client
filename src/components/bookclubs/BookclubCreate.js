@@ -25,12 +25,12 @@ class BookclubCreate extends Component {
       [inputName]: inputValue
     }
     })
-    console.log('input name is ' + inputName, 'input value is ' + inputValue)
+    // console.log('input name is ' + inputName, 'input value is ' + inputValue)
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.state.bookclub)
+    // console.log(this.state.bookclub)
     axios({
       url: `${apiUrl}/bookclubs`,
       method: 'POST',
@@ -61,7 +61,7 @@ class BookclubCreate extends Component {
     }
     return (
       <div>
-        <h3> Create a book! </h3>
+        <h3> Create a bookclub! </h3>
         <BookclubForm
           bookclub={this.state.bookclub}
           handleChange={this.handleChange}

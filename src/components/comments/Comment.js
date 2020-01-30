@@ -16,9 +16,9 @@ class Comment extends Component {
   componentDidMount () {
     axios(`${apiUrl}/comments/${this.props.match.params.id}`)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({ comment: res.data.comment })
-        console.log('this is the this.state.comment', this.state.comment)
+        // console.log('this is the this.state.comment', this.state.comment)
       })
       .catch(console.error)
   }

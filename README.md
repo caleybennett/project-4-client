@@ -1,9 +1,16 @@
+# Booknook
 # BookNook: A Description
 
 This application lets users join a bookclub, create books within a bookclub that they can comment on and have discussions with other users about the book they are reading. A user can create, delete, show, and update their books, as well as comments. I was inspired to make this app after my mom joined multiple bookclubs and wanted the option to discus the books she was reading remotely with her differe book groups.
 
+## Setup Steps
+
+1. [Fork and clone] this repository.
+2.  Run `npm install` to install all dependencies
+3.  Use `npm start` to spin up the server.
+
 ## Important Links
-<a href="https://github.com/caleybennett/project-4-api" target="_blank"> Backend Repo </a>
+<a href="https://github.com/caleybennett/project-4-api" target="_blank">  Front Rnd Repo </a>
 <a href="https://caleybennett.github.io/project-4-client/#/bookclubs/1" target="_blank"> Deployed Client </a>
 <a href="https://young-coast-99750.herokuapp.com/bookclubs" target="_blank"> Deployed API </a>
 
@@ -14,7 +21,13 @@ The second day I removed the bookclub resource to make sure I hit mvp, so a user
 
 On the forth day I created a 'my bookclubs' feature which shows the user what bookclubs they have joined. To do this I had to filter twice through the bookclubs array, since I was iterating through an array of an array. This took most of the morning. The afternoon of the forth day was spent bug hunting and styling.
 
+## Technologies used
+  - React
+  - JavaScript
+  - Bootstrap
+
 ## User Stories
+
 As a user, I would like to sign up and sign in.
 As a user, I would like to be able to change password and sign out once I'm signed in.
 As a signed in user, I would like to be able to create a book club.
@@ -34,3 +47,6 @@ As a signed in user, I would like to update/ delete my comments.
 ![img_6400 1](https://media.git.generalassemb.ly/user/24039/files/190b1080-40e7-11ea-853d-42b5fe965ba1)
 ![img_6401 1](https://media.git.generalassemb.ly/user/24039/files/1b6d6a80-40e7-11ea-996a-74817ed373bb)
 ![img_6402 1](https://media.git.generalassemb.ly/user/24039/files/1f00f180-40e7-11ea-8a0a-15c075d6dbc6)
+
+## Future Plans
+Ideally I would like to encorerate a third party api where users can browse books to add to their bookclubs.

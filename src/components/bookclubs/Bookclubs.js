@@ -32,23 +32,12 @@ class Bookclub extends Component {
   render () {
     let bookclubsJsx = ''
     if (!this.state.isLoaded) {
-<<<<<<< HEAD
-      bookclubsJsx = <p> loading </p>
-      // bookclubsJsx = <Loader
-      //   type="Triangle"
-      //   color="#DCAE1D"
-      //   height={100}
-      //   width={100}
-      // />
-=======
-      // bookclubsJsx = <p> loading </p>
       bookclubsJsx = <Loader
         type="Triangle"
         color="#DCAE1D"
         height={100}
         width={100}
       />
->>>>>>> styling
     } else {
       bookclubsJsx = this.state.bookclubs.map(bookclub => (
         <ListGroup.Item className="list-group-item" key={bookclub.id} action href={`#bookclubs/${bookclub.id}`}>
@@ -59,11 +48,7 @@ class Bookclub extends Component {
 
     return (
       <div>
-<<<<<<< HEAD
-        <h1> Welcome to booknook</h1>
-=======
         <h1>booknook</h1>
->>>>>>> styling
         <ListGroup variant="flush">
           {this.props.user ? '' : <h5> In order to join a bookclub please sign in! </h5>}
           {bookclubsJsx}

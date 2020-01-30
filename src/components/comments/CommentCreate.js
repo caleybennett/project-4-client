@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom'
 class CommentCreate extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
+    // console.log(props)
     this.state = {
       comment: {
         text: '',
@@ -21,7 +21,7 @@ class CommentCreate extends Component {
   handleChange= (event) => {
     const inputName = event.target.name
     const inputValue = event.target.value
-    console.log(this.props)
+    // console.log(this.props)
     this.setState({ comment: {
       ...this.state.comment,
       [inputName]: inputValue,

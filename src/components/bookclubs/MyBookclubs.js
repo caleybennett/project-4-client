@@ -42,7 +42,7 @@ class MyBookclub extends Component {
       />
       bookclubsJsx = <p> loading </p>
     } else {
-      console.log('user: ', this.props.user)
+      // console.log('user: ', this.props.user)
       //   for (let x = 0; x < this.state.bookclubs[x]; x++) {
       //     for (let i = 0; i < this.state.bookclubs[x].users.length; i++) {
       //       if (this.state.bookclubs[x].users[i].id === this.props.user.id) {
@@ -52,12 +52,12 @@ class MyBookclub extends Component {
       //   }
 
       this.state.bookclubs.filter(bookclub => {
-        console.log('club: ', bookclub.users)
+        // console.log('club: ', bookclub.users)
         // bookclubs.users.includes(this.props.user.email)
         if (bookclub.users.length > 0) {
           return bookclub.users.filter(x => {
-            console.log('user id: ', this.props.user.id)
-            console.log('x id: ', x.id)
+            // console.log('user id: ', this.props.user.id)
+            // console.log('x id: ', x.id)
             if (x.id === this.props.user.id) {
               myBookclubs.push(bookclub)
             }
@@ -67,8 +67,8 @@ class MyBookclub extends Component {
           })
         }
       })
-      console.log('my bookclubs', myBookclubs)
-      // console.log('clubs: ', this.state.bookclubs)
+      // console.log('my bookclubs', myBookclubs)
+      // // console.log('clubs: ', this.state.bookclubs)
       bookclubsJsx = myBookclubs.map(bookclub => (
         <ListGroup.Item className="list-group-item" key={bookclub.id} action href={`#bookclubs/${bookclub.id}`}>
           <h4> {bookclub.name} </h4>

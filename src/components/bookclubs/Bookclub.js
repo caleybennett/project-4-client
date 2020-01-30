@@ -17,7 +17,7 @@ class Bookclub extends Component {
     axios(`${apiUrl}/bookclubs/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ bookclub: res.data.bookclub })
-        console.log(this.state.bookclub)
+        // console.log(this.state.bookclub)
       })
       .catch(console.error)
   }
@@ -77,6 +77,7 @@ class Bookclub extends Component {
   //     <h4> {bookclub.name} </h4>
   //   </ListGroup.Item>
   // ))
+
   render () {
     let booksJsx = ''
     let createBook = ''

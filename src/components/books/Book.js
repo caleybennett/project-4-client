@@ -16,7 +16,7 @@ class Book extends Component {
   componentDidMount () {
     axios(`${apiUrl}/books/${this.props.match.params.id}`)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         this.setState({ book: res.data.book })
       })
       .catch(console.error)
@@ -44,7 +44,7 @@ class Book extends Component {
   }
 
   render () {
-    //    console.log('this is this.state.book' + this.state.book)
+    //    // console.log('this is this.state.book' + this.state.book)
     let commentJsx = ''
     if (!this.state.book) {
       return <Loader
@@ -54,7 +54,7 @@ class Book extends Component {
         width={100}
       />
     }
-    // console.log(this.state.book)
+    // // console.log(this.state.book)
     commentJsx = this.state.book.comments.map(comment => (
       <ListGroup.Item className="list-group-item" key={comment.id} action href={`#comments/${comment.id}`}>
         <p> {comment.text} </p>
@@ -73,7 +73,6 @@ class Book extends Component {
       <div>
         <h2>{this.state.book.title}</h2>
         <h5>{this.state.book.author}</h5>
-        {console.log('this.props is', this.props)}
         {this.props.user && (this.props.user.id === this.state.book.user.id) &&
           (
             <div>
