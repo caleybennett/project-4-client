@@ -1,6 +1,6 @@
 $primary: #DCAE1D;
 @import '~bootstrap/scss/bootstrap';
-// @import '../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+@import '../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 
 
@@ -10,12 +10,6 @@ body {
   justify-content: center;
   background-color: #CAE4DB;
   color: #00303F;
-  // background-image: url(https://lh5.googleusercontent.com/proxy/u2ANOUJ7entH-tn_yvoeSOy8do0fuRAEbMOyTW__zx1llO58yj3UNrPD3tCXH1zac9Lvm_gGCQ30fEpsweqLXOFD);
-  // max-height: 20px;
-  // max-width: 40px;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-position: bottom;
 }
 
 h1 {
@@ -29,6 +23,10 @@ h5 {
 
 p {
   font-family: 'Roboto', sans-serif;
+}
+
+footer {
+  align-items: center;
 }
 
 .bookclub-title {
@@ -48,3 +46,12 @@ p {
   font-weight: bold;
   color: #00303F;
 }
+
+// .background-image {
+//   background-image: image('../unnamed.png');
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: bottom;
+//   position: absolute;
+//   z-index: -1;
+// }

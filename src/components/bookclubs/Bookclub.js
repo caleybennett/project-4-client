@@ -3,7 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-// import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -39,6 +39,11 @@ class Bookclub extends Component {
         heading: 'YAYY🍾',
         message: 'You joined a book club!',
         variant: 'success'
+      }))
+      .catch(() => this.props.alert({
+        heading: 'Oh no, something went wrong',
+        message: 'Please try again',
+        variant: 'danger'
       }))
   }
 
@@ -76,13 +81,13 @@ class Bookclub extends Component {
     let booksJsx = ''
     let createBook = ''
     if (this.state.bookclub === null) {
-      // booksJsx = <Loader
-      //   type="Triangle"
-      //   color="#DCAE1D"
-      //   height={100}
-      //   width={100}
-      // />
-      booksJsx = <p> loading </p>
+      booksJsx = <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
+      // booksJsx = <p> loading </p>
     } else {
       booksJsx =
         this.state.bookclub.books.map(book => (

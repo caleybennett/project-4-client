@@ -48,12 +48,11 @@ class BookclubCreate extends Component {
         message: 'You created a bookclub',
         variant: 'success'
       }))
-      // .catch(() => this.props.alert({
-      //   heading: 'Oh no, something went wrong',
-      //   message: 'Please try again',
-      //   variant: 'danger'
-      // }))
-      .catch(console.error)
+      .catch(() => this.props.alert({
+        heading: 'Oh no, something went wrong',
+        message: 'Please try again',
+        variant: 'danger'
+      }))
   }
 
   render () {
