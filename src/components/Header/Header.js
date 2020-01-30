@@ -6,6 +6,9 @@ const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link href="#/"> All Bookclubs </Nav.Link>
+    <Nav.Link href="#create-bookclub">Create a Bookclub!</Nav.Link>
+    <Nav.Link href="#my-bookclubs"> My Bookclubs </Nav.Link>
   </Fragment>
 )
 
@@ -19,14 +22,15 @@ const unauthenticatedOptions = (
 const alwaysOptions = (
   <Fragment>
     <Nav.Link href="/">Home</Nav.Link>
-    <Nav.Link href="#books"> Books </Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      Bookworm
+      booknook
+      <i className="fas fa-books">
+      </i>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

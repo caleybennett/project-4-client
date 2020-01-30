@@ -61,11 +61,14 @@ class BookclubCreate extends Component {
       return <Redirect to={`/bookclubs/${this.state.createdId}`} />
     }
     return (
-      <BookclubForm
-        bookclub={this.state.bookclub}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <h3> Create a book! </h3>
+        <BookclubForm
+          bookclub={this.state.bookclub}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     )
   }
 }

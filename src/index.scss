@@ -12,13 +12,30 @@ body {
 
 h1 {
   font-family: 'Merriweather', serif;
+  padding: 25px;
+  text-decoration: underline;
+}
+
+h5 {
+  padding: 10px;
 }
 
 p {
   font-family: 'Roboto', sans-serif;
 }
 
+.container {
+
+}
+
+// .container-grid {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+// }
+
 .list-group-item {
   background-color: #CAE4DB;
+  font-weight: bold;
   color: #00303F;
 }

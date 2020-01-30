@@ -3,6 +3,7 @@ import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../../apiConfig'
 import { Link } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 class Books extends Component {
   constructor (props) {
@@ -26,7 +27,12 @@ class Books extends Component {
   render () {
     let booksJsx = ''
     if (!this.state.books.length) {
-      booksJsx = <p> Loading.. </p>
+      booksJsx = <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
     } else {
       booksJsx = this.state.books.map(book => (
         <ListGroup.Item className="list-group-item" key={book.id} action href={`#books/${book.id}`}>
@@ -38,7 +44,7 @@ class Books extends Component {
       ))
     }
     return (
-      <ListGroup>
+      <ListGroup className="list-group-flush">
         {booksJsx}
         { this.props.user ? <Link className="btn btn-primary" to={`/bookclubs/${this.props.match.params.id}/create-book`}> Create a Book! </Link> : ''
         }

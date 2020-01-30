@@ -79,11 +79,14 @@ render () {
   }
 
   return (
-    <BookForm
-      book={this.state.book}
-      handleChange={this.handleChange}
-      handleSubmit={this.handleSubmit}
-    />
+    <div>
+      <h2> Update a book! </h2>
+      <BookForm
+        book={this.state.book}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
+    </div>
   )
 }
 }

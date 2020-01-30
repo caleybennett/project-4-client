@@ -3,6 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -63,30 +64,33 @@ class Bookclub extends Component {
   // }
   // <p className="created-by"> created by {book.user.email} </p>
   //   && (this.props.user.id === this.state.bookclub.user.id)
-
+  // <h4> {book.title} </h4>
+  // <p> by </p>
+  // <p> {book.author} </p>
+  // bookclubsJsx = this.state.bookclubs.map(bookclub => (
+  //   <ListGroup.Item className="list-group-item" key={bookclub.id} action href={`#bookclubs/${bookclub.id}`}>
+  //     <h4> {bookclub.name} </h4>
+  //   </ListGroup.Item>
+  // ))
   render () {
     let booksJsx = ''
     let createBook = ''
     if (this.state.bookclub === null) {
-      booksJsx = <p> Loading.. </p>
-      createBook = <p> loading more </p>
+      booksJsx = <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
     } else {
-      booksJsx = this.state.bookclub.books.map(book => (
-        <ListGroup.Item className="list-group-item" key={book.id} action href={`#books/${book.id}`}>
-          <h4> {book.title} </h4>
-          <p> by </p>
-          <p> {book.author} </p>
-        </ListGroup.Item>
-      ))
-      // let i = 0
-      // for (i = 0; i < this.state.bookclub.users.length; i++) {
-      //   if (this.state.bookclub.users[i].id === this.props.user.id) {
-      //     createBook = <Link className="btn btn-primary" to={`bookclubs/${this.props.match.params.id}/create-book`}> Create a Book! </Link>
-      //   } else {
-      //     createBook = <h5> Join the book club to create a book! </h5>
-      //   }
-      // }
-      console.log(`bookclubs/${this.props.match.params.id}/create-book`)
+      booksJsx =
+        this.state.bookclub.books.map(book => (
+          <ListGroup.Item className="list-group-item" key={book.id} action href={`#books/${book.id}`}>
+            <h4> {book.title} </h4>
+            <p> by </p>
+            <p> {book.author} </p>
+          </ListGroup.Item>
+        ))
       if (this.props.user) {
         if (this.state.bookclub.users.find(user => user.id === this.props.user.id)) {
           createBook = <Link className="btn btn-primary" to={`bookclubs/${this.props.match.params.id}/create-book`}> Create a Book! </Link>
@@ -101,10 +105,11 @@ class Bookclub extends Component {
     }
     return (
       <div>
-        <ListGroup>
+        <h3> {this.state.bookclub ? this.state.bookclub.name : ''} </h3>
+        <ListGroup className="container-grid">
           {booksJsx}
-          {createBook}
         </ListGroup>
+        {createBook}
       </div>
     )
   }

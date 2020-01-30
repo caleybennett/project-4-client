@@ -3,6 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 class Book extends Component {
   constructor (props) {
@@ -18,7 +19,6 @@ class Book extends Component {
         console.log(res)
         this.setState({ book: res.data.book })
       })
-      .then(console.log)
       .catch(console.error)
   }
 
@@ -44,12 +44,20 @@ class Book extends Component {
   }
 
   render () {
+    console.log('this is this.state.book' + this.state.book)
     let commentJsx = ''
     if (!this.state.book) {
-      return <p>Loading</p>
+      return <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
     }
+    console.log(this.state.book)
     commentJsx = this.state.book.comments.map(comment => (
       <ListGroup.Item className="list-group-item" key={comment.id} action href={`#comments/${comment.id}`}>
+        {console.log('comment is' + comment.text)}
         <p> {comment.text} </p>
         <p className="created-by"> created by: {comment.user.email} </p>
       </ListGroup.Item>

@@ -69,11 +69,14 @@ render () {
     return <Redirect to={`/books/${this.state.createdId}`} />
   }
   return (
-    <BookForm
-      book={this.state.book}
-      handleChange={this.handleChange}
-      handleSubmit={this.handleSubmit}
-    />
+    <div>
+      <h2> Create a book! </h2>
+      <BookForm
+        book={this.state.book}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
+    </div>
   )
 }
 }
