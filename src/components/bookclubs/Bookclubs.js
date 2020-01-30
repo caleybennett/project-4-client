@@ -45,7 +45,6 @@ class Bookclub extends Component {
     return (
       <div>
         <h1> Welcome to booknook</h1>
-        <i className="fas fa-books"></i>
         <ListGroup variant="flush">
           {this.props.user ? '' : <h5> In order to join a bookclub please sign in! </h5>}
           {bookclubsJsx}
