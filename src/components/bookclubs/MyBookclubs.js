@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
-// import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 
 class MyBookclub extends Component {
   constructor (props) {
@@ -20,7 +20,11 @@ class MyBookclub extends Component {
       .then(res => {
         this.setState({ bookclubs: res.data.bookclubs })
       })
-      .catch(console.error)
+      .catch(() => this.props.alert({
+        heading: 'Oh no, something went wrong',
+        message: 'Please try again',
+        variant: 'danger'
+      }))
   }
 
   render () {
@@ -30,12 +34,12 @@ class MyBookclub extends Component {
 
     // caley's stuff
     if (!this.state.bookclubs.length) {
-      // bookclubsJsx = <Loader
-      //   type="Triangle"
-      //   color="#DCAE1D"
-      //   height={100}
-      //   width={100}
-      // />
+      bookclubsJsx = <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
       bookclubsJsx = <p> loading </p>
     } else {
       console.log('user: ', this.props.user)
@@ -74,7 +78,7 @@ class MyBookclub extends Component {
 
     return (
       <div>
-        <h1> Welcome to bookworm!</h1>
+        <h1> Your Bookclubs: </h1>
         {this.props.user ? '' : <h5> In order to join a bookclub please sign in! </h5>}
         <ListGroup variant="flush">
           {bookclubsJsx}

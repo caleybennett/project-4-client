@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
-// import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -22,12 +22,17 @@ class Bookclub extends Component {
       .then(res => {
         this.setState({ bookclubs: res.data.bookclubs, isLoaded: true })
       })
-      .catch(console.error)
+      .catch(() => this.props.alert({
+        heading: 'Oh no, something went wrong',
+        message: 'Please try again',
+        variant: 'danger'
+      }))
   }
 
   render () {
     let bookclubsJsx = ''
     if (!this.state.isLoaded) {
+<<<<<<< HEAD
       bookclubsJsx = <p> loading </p>
       // bookclubsJsx = <Loader
       //   type="Triangle"
@@ -35,6 +40,15 @@ class Bookclub extends Component {
       //   height={100}
       //   width={100}
       // />
+=======
+      // bookclubsJsx = <p> loading </p>
+      bookclubsJsx = <Loader
+        type="Triangle"
+        color="#DCAE1D"
+        height={100}
+        width={100}
+      />
+>>>>>>> styling
     } else {
       bookclubsJsx = this.state.bookclubs.map(bookclub => (
         <ListGroup.Item className="list-group-item" key={bookclub.id} action href={`#bookclubs/${bookclub.id}`}>
@@ -45,7 +59,11 @@ class Bookclub extends Component {
 
     return (
       <div>
+<<<<<<< HEAD
         <h1> Welcome to booknook</h1>
+=======
+        <h1>booknook</h1>
+>>>>>>> styling
         <ListGroup variant="flush">
           {this.props.user ? '' : <h5> In order to join a bookclub please sign in! </h5>}
           {bookclubsJsx}
