@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 class MyBookclub extends Component {
   constructor (props) {
@@ -30,12 +30,13 @@ class MyBookclub extends Component {
 
     // caley's stuff
     if (!this.state.bookclubs.length) {
-      bookclubsJsx = <Loader
-        type="Triangle"
-        color="#DCAE1D"
-        height={100}
-        width={100}
-      />
+      // bookclubsJsx = <Loader
+      //   type="Triangle"
+      //   color="#DCAE1D"
+      //   height={100}
+      //   width={100}
+      // />
+      bookclubsJsx = <p> loading </p>
     } else {
       console.log('user: ', this.props.user)
       //   for (let x = 0; x < this.state.bookclubs[x]; x++) {

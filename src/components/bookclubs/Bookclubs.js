@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -27,12 +27,13 @@ class Bookclub extends Component {
   render () {
     let bookclubsJsx = ''
     if (!this.state.bookclubs.length) {
-      bookclubsJsx = <Loader
-        type="Triangle"
-        color="#DCAE1D"
-        height={100}
-        width={100}
-      />
+      bookclubsJsx = <p> loading </p>
+      // bookclubsJsx = <Loader
+      //   type="Triangle"
+      //   color="#DCAE1D"
+      //   height={100}
+      //   width={100}
+      // />
     } else {
       bookclubsJsx = this.state.bookclubs.map(bookclub => (
         <ListGroup.Item className="list-group-item" key={bookclub.id} action href={`#bookclubs/${bookclub.id}`}>

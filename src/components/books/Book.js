@@ -3,7 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 class Book extends Component {
   constructor (props) {
@@ -47,12 +47,13 @@ class Book extends Component {
     console.log('this is this.state.book' + this.state.book)
     let commentJsx = ''
     if (!this.state.book) {
-      return <Loader
-        type="Triangle"
-        color="#DCAE1D"
-        height={100}
-        width={100}
-      />
+      // return <Loader
+      //   type="Triangle"
+      //   color="#DCAE1D"
+      //   height={100}
+      //   width={100}
+      // />
+      return <p> loading </p>
     }
     console.log(this.state.book)
     commentJsx = this.state.book.comments.map(comment => (

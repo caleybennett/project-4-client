@@ -3,7 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 // import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 class Comment extends Component {
   constructor (props) {
@@ -45,12 +45,13 @@ class Comment extends Component {
 
   render () {
     if (!this.state.comment) {
-      return <Loader
-        type="Triangle"
-        color="#DCAE1D"
-        height={100}
-        width={100}
-      />
+      // return <Loader
+      //   type="Triangle"
+      //   color="#DCAE1D"
+      //   height={100}
+      //   width={100}
+      // />
+      return <p> loading</p>
     }
     return (
       <div>

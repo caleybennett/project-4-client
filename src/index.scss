@@ -1,6 +1,6 @@
 $primary: #DCAE1D;
 @import '~bootstrap/scss/bootstrap';
-// @import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+// @import '../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 
 
@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   padding: 25px;
 }
 
@@ -29,6 +29,11 @@ h5 {
 
 p {
   font-family: 'Roboto', sans-serif;
+}
+
+.bookclub-title {
+  padding: 20px;
+  font-weight: bold;
 }
 
 

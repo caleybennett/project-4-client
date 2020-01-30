@@ -3,7 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -76,12 +76,13 @@ class Bookclub extends Component {
     let booksJsx = ''
     let createBook = ''
     if (this.state.bookclub === null) {
-      booksJsx = <Loader
-        type="Triangle"
-        color="#DCAE1D"
-        height={100}
-        width={100}
-      />
+      // booksJsx = <Loader
+      //   type="Triangle"
+      //   color="#DCAE1D"
+      //   height={100}
+      //   width={100}
+      // />
+      booksJsx = <p> loading </p>
     } else {
       booksJsx =
         this.state.bookclub.books.map(book => (
@@ -105,7 +106,7 @@ class Bookclub extends Component {
     }
     return (
       <div>
-        <h3> {this.state.bookclub ? this.state.bookclub.name : ''} </h3>
+        <h3 className="bookclub-title"> {this.state.bookclub ? this.state.bookclub.name : ''} </h3>
         <ListGroup className="container-grid">
           {booksJsx}
         </ListGroup>
