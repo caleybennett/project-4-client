@@ -48,5 +48,8 @@ As a signed in user, I would like to update/ delete my comments.
 ![img_6401 1](https://media.git.generalassemb.ly/user/24039/files/1b6d6a80-40e7-11ea-996a-74817ed373bb)
 ![img_6402 1](https://media.git.generalassemb.ly/user/24039/files/1f00f180-40e7-11ea-8a0a-15c075d6dbc6)
 
+## Image screenshot
+<img src="htttps://raw.githubusercontent.com/caleybennett/project-4-client/master/screenshot.png">
+
 ## Future Plans
 Ideally I would like to encorerate a third party api where users can browse books to add to their bookclubs.
