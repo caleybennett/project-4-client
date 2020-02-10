@@ -4,6 +4,7 @@ import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 class Bookclub extends Component {
   constructor (props) {
@@ -112,6 +113,10 @@ class Bookclub extends Component {
     }
     return (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item active>{this.state.bookclub ? this.state.bookclub.name : ''}</Breadcrumb.Item>
+        </Breadcrumb>
         <h3 className="bookclub-title"> {this.state.bookclub ? this.state.bookclub.name : ''} </h3>
         <ListGroup className="container-grid">
           {booksJsx}

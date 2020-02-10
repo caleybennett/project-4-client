@@ -4,6 +4,7 @@ import apiUrl from '../../apiConfig'
 // import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 class Comment extends Component {
   constructor (props) {
@@ -52,8 +53,19 @@ class Comment extends Component {
         width={100}
       />
     }
+    console.log(this.props)
     return (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href={`#/bookclubs/${this.state.comment.book.bookclub_id}`}>
+            Bookclub
+          </Breadcrumb.Item>
+          <Breadcrumb.Item href={`#/books/${this.state.comment.book.id}`}>
+            {this.state.comment.book.title}
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>Comment</Breadcrumb.Item>
+        </Breadcrumb>
         <h4> {this.state.comment.text} </h4>
         <p> Commenting on: {this.state.comment.book.title}</p>
         <p className="created-by">  created by {this.state.comment.user.email} </p>

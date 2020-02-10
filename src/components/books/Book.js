@@ -4,6 +4,7 @@ import apiUrl from '../../apiConfig'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
 class Book extends Component {
   constructor (props) {
@@ -56,7 +57,7 @@ class Book extends Component {
     }
     // // console.log(this.state.book)
     commentJsx = this.state.book.comments.map(comment => (
-      <ListGroup.Item className="list-group-item" key={comment.id} action href={`#comments/${comment.id}`}>
+      <ListGroup.Item className="list-group-item" key={comment.id} action href={`#comments/${comment.id}`} book={this.state.book}>
         <p> {comment.text} </p>
         <p className="created-by"> created by: {comment.user.email} </p>
       </ListGroup.Item>
@@ -71,6 +72,13 @@ class Book extends Component {
     // ))
     return (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href={`#/bookclubs/${this.state.book.bookclub.id}`}>
+            {this.state.book.bookclub.name}
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>{this.state.book.title}</Breadcrumb.Item>
+        </Breadcrumb>
         <h2>{this.state.book.title}</h2>
         <h5>{this.state.book.author}</h5>
         {this.props.user && (this.props.user.id === this.state.book.user.id) &&
