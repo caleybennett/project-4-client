@@ -5,13 +5,16 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { FaSearch } from 'react-icons/fa'
 
 class Bookclub extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      bookclub: null
+      bookclub: null,
+      searchedValue: '',
+      filteredEntries: []
     }
   }
   componentDidMount () {
@@ -47,7 +50,20 @@ class Bookclub extends Component {
         variant: 'danger'
       }))
   }
+  handleSearch = (event) => {
+  // update the search value to what is being typed into the input box
+  // once this is done run the search for DNA function
+    this.setState({ searchValue: event.target.value }, () => this.searchForDNA())
+  }
 
+  searchForDNA = (event) => {
+    // make a variable called filteredEntries
+    // take the entries stored in state and filter through them
+    // match the name of the entry to the search value defined above
+    const filteredEntries = this.state.bookclub.books.filter(entry => entry.title.toLowerCase().match(this.state.searchValue.toLowerCase()))
+    // store the filteredEntries in state
+    this.setState({ filteredEntries: filteredEntries })
+  }
   // handleDelete = () => {
   //   axios({
   //     url: `${apiUrl}/bookclubs/${this.props.match.params.id}`,
@@ -90,7 +106,7 @@ class Bookclub extends Component {
         width={100}
       />
       // booksJsx = <p> loading </p>
-    } else {
+    } else if (this.state.filteredEntries < 1) {
       booksJsx =
         this.state.bookclub.books.map(book => (
           <ListGroup.Item className="list-group-item" key={book.id} action href={`#books/${book.id}`}>
@@ -110,13 +126,36 @@ class Bookclub extends Component {
           </div>
         }
       }
+    } else {
+      booksJsx = this.state.filteredEntries.map(book => (
+        <ListGroup.Item className="list-group-item" key={book.id} action href={`#books/${book.id}`}>
+          <h4> {book.title} </h4>
+          <p> by </p>
+          <p> {book.author} </p>
+        </ListGroup.Item>
+      ))
+      if (this.props.user) {
+        if (this.state.bookclub.users.find(user => user.id === this.props.user.id)) {
+          createBook = <Link className="btn btn-primary" to={`bookclubs/${this.props.match.params.id}/create-book`}> Create a Book! </Link>
+        } else {
+          createBook =
+          <div>
+            <h5> Join the book club to create a book! </h5>
+            <button className="btn btn-success" onClick={this.handleClick}> Join </button>
+          </div>
+        }
+      }
     }
     return (
       <div>
         <Breadcrumb>
-          <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="#/">Home</Breadcrumb.Item>
           <Breadcrumb.Item active>{this.state.bookclub ? this.state.bookclub.name : ''}</Breadcrumb.Item>
         </Breadcrumb>
+        <form className="search-bar" >
+          <FaSearch />
+          <input className="search" value={this.state.searchValue} onChange={this.handleSearch} type="text" placeholder="Search for a book!"/>
+        </form>
         <h3 className="bookclub-title"> {this.state.bookclub ? this.state.bookclub.name : ''} </h3>
         <ListGroup className="container-grid">
           {booksJsx}

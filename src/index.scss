@@ -16,10 +16,13 @@ body {
 h1 {
   font-family: 'Noto Sans JP', sans-serif;
   padding: 25px;
+  float: center;
+  margin: 10px;
 }
 
 h5 {
   padding: 10px;
+  float: center;
 }
 
 p {
@@ -47,6 +50,19 @@ footer {
   font-weight: bold;
   color: #00303F;
 }
+
+.search-bar {
+  background-color: #CAE4DB;
+  border-bottom: 2px solid black;
+  float: right;
+}
+h1 {
+  float: center;
+}
+
+// input {
+//   background-color: #CAE4DB;
+// }
 
 // .background-image {
 //   background-image: image('../unnamed.png');
